@@ -1,0 +1,67 @@
+{
+    "docker":{
+        "connection":{
+            "host": "unix:///var/run/docker.sock",
+            "cacert": "",
+            "cert": "",
+            "key": ""
+        },
+        "execution":{
+            "container":{
+                "hostname": "",
+                "domainname": "",
+                "user": "",
+                "attachstdin": false,
+                "attachstdout": false,
+                "attachstderr": false,
+                "exposedports": {},
+                "tty": false,
+                "openstdin": false,
+                "stdinonce": false,
+                "env": [],
+                "cmd": [],
+                "healthcheck": null,
+                "argsescaped": false,
+                "image": "containerssh/containerssh-guest-image",
+                "volumes": {},
+                "workingdir": "",
+                "entrypoint": [],
+                "networkdisabled": false,
+                "macaddress": "",
+                "onbuild": [],
+                "labels": {},
+                "stopsignal": "",
+                "stoptimeout": null,
+                "shell": []
+            },
+            "host": null,
+            "network": null,
+            "platform": null,
+            "containername": "",
+            "mode": "connection",
+            "idleCommand":[
+                "/usr/bin/containerssh-agent",
+                "wait-signal",
+                "--signal",
+                "INT",
+                "--signal",
+                "TERM"
+            ],
+            "shellCommand":["/bin/bash"],
+            "agentPath": "/usr/bin/containerssh-agent",
+            "disableAgent": false,
+            "subsystems":{
+                "sftp": "/usr/lib/openssh/sftp-server"
+            },
+            "imagePullPolicy": "IfNotPresent"
+        },
+        "timeouts":{
+            "containerStart": "1m0s",
+            "containerStop": "1m0s",
+            "commandStart": "1m0s",
+            "signal": "1m0s",
+            "window": "1m0s",
+            "http": "15s"
+        }
+    }
+}

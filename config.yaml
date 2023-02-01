@@ -1,0 +1,18 @@
+---
+ssh:
+  banner: "Welcome to Practiz ContainerSSH!\n"
+  hostkeys:
+    - /var/secrets/ssh_host_rsa_key
+log:
+  level: debug
+auth:
+  url: "http://172.17.0.1:5000"
+configserver:
+  url: "http://172.17.0.1:5000/config"
+backend: docker
+docker:
+  execution:
+    container:
+      image: yuuzukatsu/coba:httpd #Default Container
+  connection:
+    host: unix:///var/run/docker.sock
