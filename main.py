@@ -6,7 +6,12 @@ app.config["DEBUG"] = True
 
 password = [
     {
-        "username": "yzk",
+        "username": "node",
+        "remoteAddress": "0.0.0.0",
+        # "connectionId": "123",
+        "passwordBase64": "Y29iYQ=="
+    },{
+        "username": "nix",
         "remoteAddress": "0.0.0.0",
         # "connectionId": "123",
         "passwordBase64": "Y29iYQ=="
@@ -22,6 +27,38 @@ pubkey = [
     }
 ]
 
+config = [
+    {
+        "username": "nix",
+        "konfigurasi":{
+            "config": {
+                "docker": {
+                    "execution": {
+                        "container": {
+                            "image": "yuuzukatsu/coba:nix",
+                            "shell": "/bin/bash"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "username": "node",
+        "konfigurasi":{
+            "config": {
+                "docker": {
+                    "execution": {
+                        "container": {
+                            "image": "yuuzukatsu/coba:node",
+                            "shell": "/bin/bash"
+                        }
+                    }
+                }
+            }
+        }
+    }
+]
  
 
 @app.route('/', methods=['GET'])
@@ -46,9 +83,13 @@ def api_password():
                         return jsonify({
                             "success": True
                         })
+                    else:
+                        print("Wrong Password")
+                        return Response("Wrong Password", 401)
             else:
-                print("Wrong Password")
-                return Response("Wrong Password", 401)
+                print("User Not Found")
+                return Response("User Not Found", 401)
+                
         else:
             print("No Password")
             return Response("No Password", 401)
@@ -60,18 +101,12 @@ def api_password():
 def api_config():
     
     if 'username' in request.json:
-        return jsonify({
-            "config": {
-                "docker": {
-                    "execution": {
-                        "container": {
-                            "image": "yuuzukatsu/coba:node",
-                            "shell": "/bin/bash"
-                        }
-                    }
-                }
-            }
-        })
+        username = request.json['username']
+        for i in config:
+            if i['username'] == username:
+                return jsonify(i['konfigurasi'])
+        else:
+            return Response("Username Not Found", 401)
     else:
         return Response("No Username", 401)
 
