@@ -36,7 +36,8 @@ config = [
                     "execution": {
                         "container": {
                             "image": "yuuzukatsu/coba:nix"
-                        }
+                        },
+                        "shellCommand":["/bin/sh"]
                     }
                 }
             }
