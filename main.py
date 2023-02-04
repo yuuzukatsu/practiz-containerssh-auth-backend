@@ -51,7 +51,8 @@ config = [
                     "execution": {
                         "container": {
                             "image": "yuuzukatsu/coba:node"
-                        }
+                        },
+                        "shellCommand":["/bin/bash"]
                     }
                 }
             }
