@@ -35,8 +35,7 @@ config = [
                 "docker": {
                     "execution": {
                         "container": {
-                            "image": "yuuzukatsu/coba:nix",
-                            "shell": "/bin/bash"
+                            "image": "yuuzukatsu/coba:nix"
                         }
                     }
                 }
@@ -50,8 +49,7 @@ config = [
                 "docker": {
                     "execution": {
                         "container": {
-                            "image": "yuuzukatsu/coba:node",
-                            "shell": "/bin/bash"
+                            "image": "yuuzukatsu/coba:node"
                         }
                     }
                 }
