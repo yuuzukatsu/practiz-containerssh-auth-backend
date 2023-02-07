@@ -15,6 +15,16 @@ password = [
         "remoteAddress": "0.0.0.0",
         # "connectionId": "123",
         "passwordBase64": "Y29iYQ=="
+    },{
+        "username": "ubuntu",
+        "remoteAddress": "0.0.0.0",
+        # "connectionId": "123",
+        "passwordBase64": "Y29iYQ=="
+    },{
+        "username": "docker",
+        "remoteAddress": "0.0.0.0",
+        # "connectionId": "123",
+        "passwordBase64": "Y29iYQ=="
     }
 ]
 
@@ -52,7 +62,41 @@ config = [
                         "container": {
                             "image": "yuuzukatsu/coba:node"
                         },
+                        "shellCommand":["/bin/sh"]
+                    }
+                }
+            }
+        }
+    },{
+        "username": "ubuntu",
+        "konfigurasi":{
+            "config": {
+                "docker": {
+                    "execution": {
+                        "container": {
+                            "image": "yuuzukatsu/coba:ubuntu",
+                            "HostConfig":{
+                                "Privileged": True
+                            }
+                        },
                         "shellCommand":["/bin/bash"]
+                    }
+                }
+            }
+        }
+    },{
+        "username": "docker",
+        "konfigurasi":{
+            "config": {
+                "docker": {
+                    "execution": {
+                        "container": {
+                            "image": "yuuzukatsu/coba:dind",
+                            "HostConfig":{
+                                "Privileged": True
+                            }
+                        },
+                        "shellCommand":["/bin/sh"]
                     }
                 }
             }
@@ -104,6 +148,7 @@ def api_config():
         username = request.json['username']
         for i in config:
             if i['username'] == username:
+                print(i['konfigurasi'])
                 return jsonify(i['konfigurasi'])
         else:
             return Response("Username Not Found", 401)
