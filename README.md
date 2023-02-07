@@ -25,11 +25,20 @@ Sample User : node
 Sample Password : coba
 Image Used : yuuzukatsu/coba:node (Built from image node:latest)
 ```
-
 ```
 Sample User : nix
 Sample Password : coba
 Image Used : yuuzukatsu/coba:nix (Built from image nix:latest)
+```
+```
+Sample User : ubuntu
+Sample Password : coba
+Image Used : yuuzukatsu/coba:ubuntu (Built from image ubuntu:latest)
+```
+```
+Sample User : docker
+Sample Password : coba
+Image Used : yuuzukatsu/coba:dind (Built from image docker:dind)
 ```
 
 ```
