@@ -101,6 +101,23 @@ config = [
                 }
             }
         }
+    },{
+        "username": "docker",
+        "konfigurasi":{
+            "config": {
+                "docker": {
+                    "execution": {
+                        "container": {
+                            "image": "yuuzukatsu/coba:python",
+                            "HostConfig":{
+                                "Privileged": True
+                            }
+                        },
+                        "shellCommand":["/bin/sh"]
+                    }
+                }
+            }
+        }
     }
 ]
  
