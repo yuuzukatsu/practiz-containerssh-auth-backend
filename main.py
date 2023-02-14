@@ -115,7 +115,7 @@ config = [
                         "container": {
                             "image": "yuuzukatsu/coba:python"
                         },
-                        "shellCommand":["/nix/store/gl20v5wsmwr3gpg313v2ffr4nalzhb6a-user-environment/bin/nix-shell", "-p", "python3"]
+                        "shellCommand":["/bin/sh"]
                     }
                 }
             }
