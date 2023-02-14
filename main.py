@@ -30,6 +30,11 @@ password = [
         "remoteAddress": "0.0.0.0",
         # "connectionId": "123",
         "passwordBase64": "Y29iYQ=="
+    },{
+        "username": "pythonnix",
+        "remoteAddress": "0.0.0.0",
+        # "connectionId": "123",
+        "passwordBase64": "Y29iYQ=="
     }
 ]
 
@@ -102,6 +107,20 @@ config = [
                             }
                         },
                         "shellCommand":["/bin/sh"]
+                    }
+                }
+            }
+        }
+    },{
+        "username": "pythonnix",
+        "konfigurasi":{
+            "config": {
+                "docker": {
+                    "execution": {
+                        "container": {
+                            "image": "yuuzukatsu/coba:python_nix"
+                        },
+                        "shellCommand":["/nix/store/gl20v5wsmwr3gpg313v2ffr4nalzhb6a-user-environment/bin/nix-shell", "-p", "python3"]
                     }
                 }
             }
